@@ -41,6 +41,13 @@ export default class Board extends React.Component {
   toggleModal = event => {
     this.setState({ modalVisible: !this.state.modalVisible });
   };
+
+  handleStart = event => {
+    this.setState(
+      { paused: !this.state.paused },
+      !this.state.paused ? () => null : this.generateTick
+    );
+  };
   render() {
     return (
       <>
@@ -64,9 +71,9 @@ export default class Board extends React.Component {
               ))}
             </div>
           ))}
-          {/* <Button>Start</Button> */}
+          <Button>Start</Button>
           <Button onClick={this.toggleModal}>Settings</Button>
-          {/* <Button>Reset</Button> */}
+          <Button onClick={this.onClickHandler}>Reset</Button>
         </div>
       </>
     );

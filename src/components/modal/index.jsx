@@ -22,6 +22,9 @@ const Modal = props => (
           value={props.options.startingAlive}
         />
       </div>
+      <Button onClick={props.onClick}>Stop</Button>
+      <Button onClick={props.onClick}>Save</Button>
+      <Button onClick={props.onClick}>Reset</Button>
       <Button onClick={props.onClick}>Close</Button>
     </div>
   </Overlay>
