@@ -19,8 +19,8 @@ export default class Board extends React.Component {
     }
   };
   onClickHandler = event => {
-    console.log(event.target.dataset);
-    const { x: clickX, y: clickY } = event.target.dataset;
+    let { x: clickX, y: clickY } = event.target.dataset;
+    [clickX, clickY] = [+clickX, +clickY];
     const newBoard = this.state.board.map((row, y) =>
       row.map((cell, x) =>
         x === clickX && y === clickY
@@ -28,6 +28,7 @@ export default class Board extends React.Component {
           : this.state.board[y][x]
       )
     );
+    console.log(clickX, clickY, newBoard);
     this.setState({ board: newBoard });
   };
   onChangeOptions = event => {
